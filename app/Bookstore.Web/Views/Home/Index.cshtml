@@ -11,9 +11,10 @@
         </div>
         <div class="about-content">
             <h2>Welcome!</h2>
-            <p>                
-                Welcome to Bob’s Used Books, your online destination for finding great deals on pre-loved books of all genres and topics. 
-                Whether you’re looking for a classic novel, a rare edition, a textbook, or a cookbook, you'll find it here. 
+            <p><small class="text-muted">Built with .NET @System.Environment.Version.Major.@System.Environment.Version.Minor</small></p>
+            <p>
+                Welcome to Bob’s Used Books, your online destination for finding great deals on pre-loved books of all genres and topics.
+                Whether you’re looking for a classic novel, a rare edition, a textbook, or a cookbook, you'll find it here.
             </p>
             <p>You can also sell your own books to us and earn some extra cash. At Bob’s Used Books, we believe that every book deserves a second chance.</p>
             <p>Shop with us today and discover the joy of reading!</p>
@@ -24,36 +25,36 @@
     </section>
 
     <section class="recomended-sec">
-            <div class="title">
-                <h2>Best Sellers</h2>
-                <hr>
-            </div>
+        <div class="title">
+            <h2>Best Sellers</h2>
+            <hr>
+        </div>
 
-            <div class="row justify-content-center">
-                @if (Model.Books.Count > 0)
+        <div class="row justify-content-center">
+            @if (Model.Books.Count > 0)
+            {
+                foreach (var book in Model.Books)
                 {
-                    foreach (var book in Model.Books)
-                    {
-                        <div class="col-lg-3 col-md-6">
-                            <div class="item">
-                                <img src="@book.CoverImageUrl" alt="img" class="book_image" onerror="this.onerror=null;this.src='/images/default_c.jpg';">
-                                <p>@book.BookName</p>
-                                <div class="hover">
-                                    <a asp-controller="Search" asp-action="Details" asp-route-id="@book.BookId">
-                                        <span>
-                                            <i class="bi bi-arrow-right"></i>
-                                        </span>
-                                    </a>
-                                </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                            <img src="@book.CoverImageUrl" alt="img" class="book_image" onerror="this.onerror=null;this.src='/images/default_c.jpg';">
+                            <p>@book.BookName</p>
+                            <div class="hover">
+                                <a asp-controller="Search" asp-action="Details" asp-route-id="@book.BookId">
+                                    <span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </span>
+                                </a>
                             </div>
                         </div>
-                    }
+                    </div>
                 }
-                else
-                {
-                    <p>Check back here soon for a list of our top selling books!</p>
-                }
-            </div>
+            }
+            else
+            {
+                <p>Check back here soon for a list of our top selling books!</p>
+            }
+        </div>
     </section>
 
     <section class="about-sec">
@@ -84,7 +85,7 @@
                     <p class="card-text text-muted">You can be sure that we have the latest books on shelf and are constantly adding new titles daily</p>
                 </div>
             </div>
-            
+
             <div class="card text-center">
                 <div class="card-body">
                     <i class="bi bi-clock-history" style="font-size: 2rem; color: #00aeef;"></i>
